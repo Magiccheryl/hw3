@@ -13,28 +13,33 @@ document.addEventListener('DOMContentLoaded', async function() {
   // 🔥 YOUR CODE GOES HERE 🔥
   // Write the recipe (algorithm) in the comments. Then, write the code.
   
-  // Create a well-named variable for each data point in the Object.
-  let dropoffAddress = ride.dropoffLocation.address
-  let dropoffCity = ride.dropoffLocation.city
-  let dropoffState = ride.dropoffLocation.state
-  let dropoffZip= ride.dropoffLocation.zip
+  // Create a well-named variable for each data point in the Object:
 
-  let passengerFirstName = ride.passengerDetails.first
-  let passengerLastName = ride.passengerDetails.last
+  // Set Pickup Location to the Address, City, State, and Zip
+  let pickupLocation = `${ride.pickupLocation.address}, ${ride.pickupLocation.city}, ${ride.pickupLocation.state} ${ride.pickupLocation.zip}`
+
+  // Set Passenger name to First Name and Last Name
+  let passengerName = `${ride.passengerDetails.first} ${ride.passengerDetails.last}`
   let phoneNumber = ride.passengerDetails.phoneNumber
 
-  let pickupAddress = ride.pickupLocation.address
-  let pickupCity = ride.pickupLocation.city
-  let pickupState = ride.pickupLocation.state
-  let pickupZip= ride.pickupLocation.zip
+  // Set Dropoff Locaton to Address, City, State, and Zip
+  let dropoffLocation = `${ride.dropoffLocation.address}, ${ride.dropoffLocation.city}, ${ride.dropoffLocation.state} ${ride.dropoffLocation.zip}`
+
+  // Set "Purple" as a level of servie and store in memory
+  let purpleRequested = ride.purpleRequested
+
+  // Set the number of passengers and store in memory
+  let numberOfPassengers = ride.numberOfPassengers
 
 
+
+  // Conditional logic  
   // If the rider has requested the luxury "Purple" level of service (it doesn't matter the number of passengers)
-  if (ride.purpleRequested == true) {
+  if (purpleRequested == true) {
 
   // Display "Noober Purple" as the level of service.
   console.log(`Noober Purple Passenger:`) 
-} else if (ride.numberOfPassengers > 3) { 
+} else if (purpleRequested == false && numberOfPassengers > 3) { 
 
   // If the numberOfPassengers in a single ride request is greater than 3, we'll need to upgrade to a larger car.
   console.log(`Noober XL Passenger:`) // Display "Noober XL" as the level of service.
@@ -43,8 +48,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 }
 
   // Present it in human-readable format
-  console.log(`${passengerFirstName} ${passengerLastName} - ${phoneNumber}. Pickup at 
-${pickupAddress} ${pickupCity}, ${pickupState} ${pickupZip}. Drop-off at ${dropoffAddress} ${dropoffCity}, ${dropoffState} ${dropoffZip}.`)
+  console.log(`${passengerName} - ${phoneNumber}. Pickup at 
+${pickupLocation}. Drop-off at ${dropoffLocation}.`)
 
   // 🔥 YOUR CODE ENDS HERE 🔥
 })
